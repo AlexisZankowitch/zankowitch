@@ -11,6 +11,24 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                transition:
+                    background-color 0.3s ease,
+                    color 0.3s ease;
+            }
+
+            body,
+            h1 {
+                color: #333;
+                background-color: #fff;
+            }
+
+            /* Dark theme */
+            @media (prefers-color-scheme: dark) {
+                body,
+                h1 {
+                    background-color: #333;
+                    color: #fff;
+                }
             }
         </style>
     </head>

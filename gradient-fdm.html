@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>A.Zankowitch</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="Gradient.js"></script>
+    </head>
+    <body>
+        <header class="hero">
+            <div class="container">
+                <h1 class="text text-above">
+                    Français du Monde <br />
+                    Munich
+                </h1>
+                <div class="canvas-container">
+                    <canvas id="gradient-canvas" style="width: 100vw; height: 100vh"></canvas>
+                </div>
+                <h1 class="text text-under text-under-blended">
+                    Français du Monde <br />
+                    Munich
+                </h1>
+                <h1 class="text text-under text-under-overlay">
+                    Français du Monde <br />
+                    Munich
+                </h1>
+                <!-- <div class="hero-title-container">
+                    <h1 class="hero-title">Alexis Zankowitch</h1>
+                    <p class="hero-title" data-overlay aria-hidden=""></p>
+                </div> -->
+            </div>
+        </header>
+    </body>
+    <script>
+        var gradient = new Gradient();
+        gradient.initGradient("#gradient-canvas");
+    </script>
+    <script src="main.js"></script>
+</html>

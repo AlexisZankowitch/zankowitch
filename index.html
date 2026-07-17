@@ -11,6 +11,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: relative;
+                overflow: hidden;
                 transition:
                     background-color 0.3s ease,
                     color 0.3s ease;
@@ -19,20 +21,81 @@
             body,
             h1 {
                 color: #333;
-                background-color: #fff;
+                background-color: #fdfdfc;
+            }
+
+            .blob {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(40px);
+                pointer-events: none;
+            }
+
+            .blob-1 {
+                width: 60vmax;
+                height: 60vmax;
+                left: -15vmax;
+                top: -20vmax;
+                background: radial-gradient(circle, rgba(180, 200, 255, 0.55), transparent 70%);
+                animation: drift-1 18s ease-in-out infinite;
+            }
+
+            .blob-2 {
+                width: 52vmax;
+                height: 52vmax;
+                right: -13vmax;
+                bottom: -18vmax;
+                background: radial-gradient(circle, rgba(255, 205, 180, 0.5), transparent 70%);
+                animation: drift-2 22s ease-in-out infinite;
+            }
+
+            @keyframes drift-1 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                50% {
+                    transform: translate(60px, -40px) scale(1.15);
+                }
+            }
+
+            @keyframes drift-2 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                50% {
+                    transform: translate(-50px, 50px) scale(0.9);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .blob {
+                    animation: none;
+                }
             }
 
             /* Dark theme */
             @media (prefers-color-scheme: dark) {
                 body,
                 h1 {
-                    background-color: #333;
+                    background-color: #2b2c30;
                     color: #fff;
+                }
+
+                .blob-1 {
+                    background: radial-gradient(circle, rgba(90, 110, 200, 0.35), transparent 70%);
+                }
+
+                .blob-2 {
+                    background: radial-gradient(circle, rgba(200, 120, 80, 0.28), transparent 70%);
                 }
             }
         </style>
     </head>
     <body>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
         <div>
             <h1>Zankowitch</h1>
         </div>

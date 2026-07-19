@@ -8,99 +8,92 @@
         <meta name="theme-color" content="#2b2c30" media="(prefers-color-scheme: dark)" />
         <title>Zankowitch</title>
         <style>
+            :root {
+                --bg: #fdfdfc;
+                --fg: #333;
+                --muted: #77776f;
+                --border: rgba(51, 51, 48, 0.12);
+                --accent: #5a6ec8;
+                --blob-1: rgba(180, 200, 255, 0.55);
+                --blob-2: rgba(255, 205, 180, 0.5);
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #2b2c30;
+                    --fg: #f0f0ee;
+                    --muted: #9d9da4;
+                    --border: rgba(240, 240, 238, 0.14);
+                    --accent: #a5b3f0;
+                    --blob-1: rgba(90, 110, 200, 0.35);
+                    --blob-2: rgba(200, 120, 80, 0.28);
+                }
+            }
+            * { box-sizing: border-box; }
             body {
                 margin: 0;
-                height: 100vh;
+                min-height: 100vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                position: relative;
-                overflow: hidden;
-                font-family:
-                    system-ui,
-                    -apple-system,
-                    "Segoe UI",
-                    Roboto,
-                    Helvetica,
-                    Arial,
-                    sans-serif;
-                transition:
-                    background-color 0.3s ease,
-                    color 0.3s ease;
+                background: var(--bg);
+                color: var(--fg);
+                font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+                overflow-x: hidden;
+                transition: background-color 0.3s ease, color 0.3s ease;
             }
-
-            body,
-            h1 {
-                color: #333;
-                background-color: #fdfdfc;
-            }
-
+            a { color: var(--accent); text-decoration: none; }
+            a:hover { text-decoration: underline; }
             .blob {
-                position: absolute;
+                position: fixed;
                 border-radius: 50%;
                 filter: blur(40px);
                 pointer-events: none;
+                z-index: -1;
             }
-
             .blob-1 {
-                width: 60vmax;
-                height: 60vmax;
-                left: -15vmax;
-                top: -20vmax;
-                background: radial-gradient(circle, rgba(180, 200, 255, 0.55), transparent 70%);
+                width: 60vmax; height: 60vmax;
+                left: -15vmax; top: -20vmax;
+                background: radial-gradient(circle, var(--blob-1), transparent 70%);
                 animation: drift-1 18s ease-in-out infinite;
             }
-
             .blob-2 {
-                width: 52vmax;
-                height: 52vmax;
-                right: -13vmax;
-                bottom: -18vmax;
-                background: radial-gradient(circle, rgba(255, 205, 180, 0.5), transparent 70%);
+                width: 52vmax; height: 52vmax;
+                right: -13vmax; bottom: -18vmax;
+                background: radial-gradient(circle, var(--blob-2), transparent 70%);
                 animation: drift-2 22s ease-in-out infinite;
             }
-
             @keyframes drift-1 {
-                0%,
-                100% {
-                    transform: translate(0, 0) scale(1);
-                }
-                50% {
-                    transform: translate(60px, -40px) scale(1.15);
-                }
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                50% { transform: translate(60px, -40px) scale(1.15); }
             }
-
             @keyframes drift-2 {
-                0%,
-                100% {
-                    transform: translate(0, 0) scale(1);
-                }
-                50% {
-                    transform: translate(-50px, 50px) scale(0.9);
-                }
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                50% { transform: translate(-50px, 50px) scale(0.9); }
             }
-
             @media (prefers-reduced-motion: reduce) {
-                .blob {
-                    animation: none;
-                }
+                .blob { animation: none; }
             }
-
-            /* Dark theme */
-            @media (prefers-color-scheme: dark) {
-                body,
-                h1 {
-                    background-color: #2b2c30;
-                    color: #fff;
-                }
-
-                .blob-1 {
-                    background: radial-gradient(circle, rgba(90, 110, 200, 0.35), transparent 70%);
-                }
-
-                .blob-2 {
-                    background: radial-gradient(circle, rgba(200, 120, 80, 0.28), transparent 70%);
-                }
+            main {
+                width: 100%;
+                max-width: 520px;
+                padding: 64px 28px;
+            }
+            h1 {
+                margin: 0;
+                font-size: 34px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+            }
+            .links {
+                display: flex;
+                gap: 18px;
+                margin-top: 10px;
+                font-size: 14px;
+            }
+            .links a { color: var(--muted); }
+            .links a:hover { color: var(--fg); text-decoration: none; }
+            @media (max-width: 480px) {
+                main { padding: 48px 24px; }
             }
         </style>
     </head>
@@ -109,6 +102,10 @@
         <div class="blob blob-2" aria-hidden="true"></div>
         <main>
             <h1>Zankowitch</h1>
+            <nav class="links">
+                <a href="https://www.linkedin.com/in/azankowitch/">LinkedIn</a>
+                <a href="mailto:alexis@zankowitch.com">Email</a>
+            </nav>
         </main>
     </body>
 </html>

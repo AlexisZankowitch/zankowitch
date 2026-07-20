@@ -43,36 +43,6 @@
             }
             a { color: var(--accent); text-decoration: none; }
             a:hover { text-decoration: underline; }
-            .blob {
-                position: fixed;
-                border-radius: 50%;
-                filter: blur(40px);
-                pointer-events: none;
-                z-index: -1;
-            }
-            .blob-1 {
-                width: 60vmax; height: 60vmax;
-                left: -15vmax; top: -20vmax;
-                background: radial-gradient(circle, var(--blob-1), transparent 70%);
-                animation: drift-1 18s ease-in-out infinite;
-            }
-            .blob-2 {
-                width: 52vmax; height: 52vmax;
-                right: -13vmax; bottom: -18vmax;
-                background: radial-gradient(circle, var(--blob-2), transparent 70%);
-                animation: drift-2 22s ease-in-out infinite;
-            }
-            @keyframes drift-1 {
-                0%, 100% { transform: translate(0, 0) scale(1); }
-                50% { transform: translate(60px, -40px) scale(1.15); }
-            }
-            @keyframes drift-2 {
-                0%, 100% { transform: translate(0, 0) scale(1); }
-                50% { transform: translate(-50px, 50px) scale(0.9); }
-            }
-            @media (prefers-reduced-motion: reduce) {
-                .blob { animation: none; }
-            }
             main {
                 width: 100%;
                 max-width: 520px;
@@ -103,8 +73,6 @@
         </style>
     </head>
     <body>
-        <div class="blob blob-1" aria-hidden="true"></div>
-        <div class="blob blob-2" aria-hidden="true"></div>
         <main>
             <h1>Zankowitch</h1>
             <p class="subtitle">Software engineer</p>
